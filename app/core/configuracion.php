@@ -47,14 +47,21 @@ class Configuracion {
 	
 	
 	// localhost
-	public static $db = array(
+	/*Original
+     * public static $db = array(
 		'server'   => 'localhost',
 		'user'     => 'daw2_user',
 		'password' => 'daw2_user',
 		'db_name'  => 'daw2',
 		'prefix_'  => 'daw2_'
+	);*/
+	public static $db = array(
+		'server'   => 'localhost',
+		'user'     => 'daw2_lopcuema',
+		'password' => 'daw2_lopcuema',
+		'db_name'  => 'daw2',
+		'prefix_'  => 'daw2_'
 	);
-	
 
 	// hostinger
 //	public static $db = array(
