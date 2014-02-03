@@ -12,7 +12,7 @@ class inicio extends \core\Controlador {
 	}
 	
 	
-	
+	/*Esto sobra es lo de los idiomas y carga otra plantilla pide una nada mas*/
 	public function internacional(array $datos = array()) {
 		
 //		echo \core\Idioma::text("title", "plantilla_internacional", "en"); 

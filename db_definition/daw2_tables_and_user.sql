@@ -21,6 +21,25 @@ set names utf8;
 
 set sql_mode = 'traditional';
 
+
+/*Crea la tabla empleados.
+#ojo la llama tc_juegos*/
+drop table if exists daw2_empleados;
+create table daw2_empleados
+(  id integer auto_increment
+,  nombre varchar(50) not null
+,  apellidos varchar(80)
+,  direccion varchar(80)
+,  fecha_alta date comment 'Formato inglés -> YYYY-MM-DD'
+,  sueldo decimal (10,2) not null
+,  primary key(id)
+)
+engine = myisam default charset=utf8
+;
+
+
+
+/*A partir de aqui lo borro en proximo commit*/
 drop table if exists daw2_categorias;
 create table if not exists daw2_categorias
 ( id integer auto_increment

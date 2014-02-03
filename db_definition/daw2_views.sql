@@ -1,3 +1,4 @@
+/*Todo el fichero habria que borrararlo*/
 
 /*
  * @file: views.sql

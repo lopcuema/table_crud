@@ -1,7 +1,7 @@
 /*
  * @file: dables_and_user.sql
- * @author: jequeto@gmail.com
- * @since: 2012 enero
+ * @author: mar.arganda47@gmail.com
+ * @since: 2014 enero
 */
 
 -- use daw2;
@@ -9,16 +9,21 @@
 set names utf8;
 set sql_mode = 'traditional';
 
+insert into daw2_empleados
+  (nombre, apellidos, direccion,fecha_alta, sueldo) values
+    ('Pedro','Exposito Judea','Paraiso nº3','2008-10-21', 1109.95)
+,   ('Enrique', 'Lòpez Simple','Almendro',	'2010-03-03', 2209.03)
+
+;
 
 
-
-insert into daw2_roles
+/*A partir de aqui hay que borrar en el siguiente commit,*/
+insert into daw2_empleados
   (rol					, descripcion) values
   ('administradores'	,'Administradores de la aplicación')
 , ('usuarios'			,'Todos los usuarios incluido anónimo')
 , ('usuarios_logueados'	,'Todos los usuarios excluido anónimo')
 ;
-
 
 insert into daw2_usuarios 
   (login, email, password, fecha_alta ,fecha_confirmacion_alta, clave_confirmacion) values

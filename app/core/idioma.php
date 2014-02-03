@@ -1,11 +1,11 @@
 <?php
 namespace core;
-
+//Si quitamos internacional lo quitamos
 
 /**
  * Description of Idioma
  *
- * @author jesus
+ * @author Mar
  */
 class Idioma {
 	

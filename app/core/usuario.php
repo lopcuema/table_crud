@@ -1,6 +1,6 @@
 <?php
 namespace core;
-
+//Este tambien se quita
 class Usuario extends \core\Clase_Base {
 	
 	private static $depuracion = false;

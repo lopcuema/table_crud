@@ -3,16 +3,23 @@ namespace controladores;
 
 class errores extends \core\Controlador {
 	
-	
+/**Nos devolvera Documento no encontrado si encuentra error
+ */	
 	
 	public function index(array $datos = array()) {
 		
-		$this->mensaje($datos);
+	$datos['view_content'] = "Documento no encontrado.";
+
+	$http_enviar_error = \core\Vista_Plantilla::generar("plantilla_principal", $datos, true);
+	\core\HTTP_Respuesta::set_http_header_status("404");
+	\core\HTTP_Respuesta::enviar($http_enviar_error);
+	
+//$this->mensaje($datos);Cambiamos por devol
 		
 	}
 
 
-	
+	/* todo esto sobra*/
 	
 	public function error_404(array $datos = array()) {
 		

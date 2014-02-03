@@ -1,6 +1,6 @@
 <?php
 namespace core;
-
+    //quitarlo el fichero entero
 class SESSION {
 	
 	public static function iniciar() {

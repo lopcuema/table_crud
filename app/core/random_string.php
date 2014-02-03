@@ -1,7 +1,7 @@
 <?php
 namespace core;
 
-
+//tb hay que quitarla
 class Random_String {
 	
 	/**
