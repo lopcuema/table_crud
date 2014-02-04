@@ -1,4 +1,6 @@
 <!DOCTYPE HTML>
+// habrá que cargarse los del idioma pues eliminaremos todo
+// tambien lo del administradar en la 28
 <html lang='<?php echo \core\Idioma::get(); ?>'>
 	<head>
 		<title><?php echo \core\Idioma::text("title", "plantilla_internacional"); ?></title>
@@ -6,9 +8,9 @@
 		<meta name="Keywords" content="palabras en castellano e ingles separadas por comas" /> 
 		<meta name="Generator" content="esmvcphp framewrok" /> 
 	 	<meta name="Origen" content="esmvcphp framework" /> 
-		<meta name="Author" content="Jesús María de Quevedo Tomé" /> 
+		<meta name="Author" content="Maria del Mar López" /> 
 		<meta name="Locality" content="Madrid, España" /> 
-		<meta name="Lang" content="<?php echo \core\Idioma::get(); ?>" /> 
+		<!--<meta name="Lang" content="<?php echo \core\Idioma::get(); ?>" /> -->
 		<meta name="Viewport" content="maximum-scale=10.0" /> 
 		<meta name="revisit-after" content="1 days" /> 
 		<meta name="robots" content="INDEX,FOLLOW,NOODP" /> 
@@ -91,8 +93,8 @@
 						
 <!--						<li class="item"><a href="<?php //echo \core\URL::generar("usuarios"); ?>" title="Usuarios">Usuarios</a></li>-->
 						<?php echo \core\HTML_Tag::li_menu("item", array("usuarios"), "Usuarios"); ?>
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("categorias"); ?>" title="Categorías">Categorías</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("categorias"), "Categorias"); ?>
+<!--						<li class="item"><a href="<?php //echo \core\URL::generar("empleados"); ?>" title="Categorías">Categorías</a></li>-->
+						<?php echo \core\HTML_Tag::li_menu("item", array("empleados"), "Empleados"); ?>
 						
 <!--						<li class="item"><a href="<?php //echo \core\URL::generar("articulos"); ?>" title="Artículos">Artículos</a></li>-->
 						<?php echo \core\HTML_Tag::li_menu("item", array("articulos"), "Artículos"); ?>

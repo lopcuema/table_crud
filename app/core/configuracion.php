@@ -63,7 +63,7 @@ class Configuracion {
 		'prefix_'  => 'daw2_'
 	);
 
-	// hostinger
+	// hostinger Modificar mis datos de hostinger
 //	public static $db = array(
 //		'server'   => 'mysql.hostinger.es',
 //		'user'     => 'u452950836_daw2',
