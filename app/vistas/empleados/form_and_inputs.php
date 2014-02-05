@@ -7,9 +7,20 @@
 	Nombre: <input id='nombre' name='nombre' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('nombre', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('nombre', $datos); ?>
 	<br />
-	Descripcion:<br />
-	<textarea id='descripcion' name='descripcion' type='textarea' cols='100'  rows='10' ><?php echo \core\Array_Datos::values('descripcion', $datos); ?></textarea>
-	<?php echo \core\HTML_Tag::span_error('descripcion', $datos); ?>
+	Apellidos:<input id='apellidos' name='apellidos' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('apellidos', $datos); ?>'/>
+	<?php echo \core\HTML_Tag::span_error('apellidos', $datos); ?>
+    <br/>
+    Dirección:
+	<input id='direccion' name='direccion' type='text' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('direccion', $datos); ?>'/>
+	<?php echo \core\HTML_Tag::span_error('direccion', $datos); ?>
+    <br />
+    Fecha de Alta:<input id='fecha_alta' name='fecha_alta' type='text' size='12'  maxlength='20' value=' <?php echo \core\Array_Datos::values('fecha_alta', $datos); ?>'/>
+	<?php echo \core\HTML_Tag::span_error('fecha_alta', $datos); ?>
+    <br />
+    Sueldo:	<input id='sueldo' name='sueldo' type='text' size='15'  maxlength='20' value=' <?php echo \core\Array_Datos::values('sueldo', $datos); ?>'/>
+	<?php echo \core\HTML_Tag::span_error('sueldo', $datos); ?>
+    <br />
+    
 
 	<br />
 	<?php echo \core\HTML_Tag::span_error('errores_validacion', $datos); ?>
