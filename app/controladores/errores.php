@@ -22,8 +22,9 @@ class errores extends \core\Controlador {
 	/* todo esto sobra*/
 	
 	public function error_404(array $datos = array()) {
-		
-		$contenido = \core\Vista_Plantilla::generar("plantilla_errores", $datos);
+        
+		$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos);
+		$contenido = \core\Vista_Plantilla::generar("plantilla_principal", $datos);
 		\core\HTTP_Respuesta::set_http_header_status("404");
 		\core\HTTP_Respuesta::enviar($contenido);
 				
@@ -33,7 +34,7 @@ class errores extends \core\Controlador {
 	public function mensaje(array $datos = array()) {
 		
 		$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos);
-		$http_body = \core\Vista_Plantilla::generar('plantilla_errores', $datos);
+		$http_body = \core\Vista_Plantilla::generar('plantilla_principal', $datos);
 		\core\HTTP_Respuesta::set_http_header_status("404");
 		\core\HTTP_Respuesta::enviar($http_body);
 		

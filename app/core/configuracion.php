@@ -16,7 +16,7 @@ class Configuracion {
 	public static $url_amigable = true;
 	
 	// Control acceso a recursos
-	public static $control_acceso_recursos = true;
+	public static $control_acceso_recursos = false;// es false para que no entre en la peticion de login
 	
 	public static $display_errors = "on"; // Valores posibles "on" "off""
 
@@ -28,8 +28,8 @@ class Configuracion {
 	public static $form_login_catcha = false;
 	public static $form_insertar_externo_catcha = false;
 	
-	public static $email_info = "info@esmvcphp.es";
-	public static $email_noreply = "noreply@esmvcphp.es";
+//	public static $email_info = "info@esmvcphp.es";
+//	public static $email_noreply = "noreply@esmvcphp.es"; Estos son para el correo de confirmacion de usuarios
 	
 	/**
 	 *
@@ -83,25 +83,25 @@ class Configuracion {
 	 * 
 	 * @var array =('controlador' => array('metodo' => ' nombres usuarios rodeados por espacios
 	 */
-	public static $recursos_y_usuarios = array(
-		'*' =>	array(
-					'*' => ' admin '
-				),
-		'inicio' => array (
-						'*' => ' ** ',
-						'index' => ' * ',
-					),
-	
-		'mensajes' => array(
-							'*' => ' * ',
-							),
-		'usuarios' => array(
-							'*' => ' juan pedro ',
-							'index' => ' anais ana olga ',
-							'desconectar' => ' ** ',
-							'form_login_email' => ' anonimo ',
-							'validar_form_login_email' => ' anonimo ',
-							)
-	
-	);
+//	public static $recursos_y_usuarios = array(
+//		'*' =>	array(
+//					'*' => ' admin '
+//				),
+//		'inicio' => array (
+//						'*' => ' ** ',
+//						'index' => ' * ',
+//					),
+//	
+//		'mensajes' => array(
+//							'*' => ' * ',
+//							),
+//		'usuarios' => array(
+//							'*' => ' juan pedro ',
+//							'index' => ' anais ana olga ',
+//							'desconectar' => ' ** ',
+//							'form_login_email' => ' anonimo ',
+//							'validar_form_login_email' => ' anonimo ',
+//							)
+//	
+//	);
 } // Fin de la clase 
