@@ -23,13 +23,15 @@
 			<?php
 			foreach ($datos['filas'] as $fila)
 			{
+               $sueldo = \core\Conversiones::decimal_punto_a_coma($fila['sueldo']);
+                
 				echo "
 					<tr>
 						<td>{$fila['nombre']}</td>
 						<td>{$fila['apellidos']}</td>
                         <td>{$fila['direccion']}</td>
                         <td>{$fila['fecha_alta']}</td>
-                        <td>{$fila['sueldo']}</td>
+                        <td>$sueldo</td>
 						<td>
 					".\core\HTML_Tag::a_boton_onclick("boton", array("empleados", "form_modificar", $fila['id']), "modificar")
 //							<a class='boton' href='?menu={$datos['controlador_clase']}&submenu=form_modificar&id={$fila['id']}' >modificar</a>

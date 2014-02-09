@@ -58,14 +58,14 @@ class Rutas {
 					array_shift($parametros); // Quitamos del array de encuentros el administrator
 				}
 			}
-			if (isset($parametros[0])) {
-				$patron_idiomas = "/^(".\core\Configuracion::$idiomas_reconocidos.")$/i";
-				if (preg_match($patron_idiomas, $parametros[0])) {
-					$_GET["lang"] = strtolower($parametros[0]);
-					$_REQUEST["lang"] = strtolower($parametros[0]);
-					array_shift($parametros); // Quitamos del array de encuentros el idioma
-				}
-			}
+//			if (isset($parametros[0])) {
+//				$patron_idiomas = "/^(".\core\Configuracion::$idiomas_reconocidos.")$/i";
+//				if (preg_match($patron_idiomas, $parametros[0])) {
+//					$_GET["lang"] = strtolower($parametros[0]);
+//					$_REQUEST["lang"] = strtolower($parametros[0]);
+//					array_shift($parametros); // Quitamos del array de encuentros el idioma
+//				}
+//			}
 			
 			$patron[0] = "/^[\w\-]+$/i"; // controlador
 			$patron[1] = "/^[\w\-]+$/i"; // método

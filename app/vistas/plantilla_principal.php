@@ -3,7 +3,7 @@
 // tambien lo del administradar en la 28
 <html lang='<?php echo \core\Idioma::get(); ?>'>
 	<head>
-		<title><?php echo \core\Idioma::text("title", "plantilla_internacional"); ?></title>
+		<title><?php echo TITULO; ?></title>
 		<meta name="Description" content="Explicación de la página" /> 
 		<meta name="Keywords" content="palabras en castellano e ingles separadas por comas" /> 
 		<meta name="Generator" content="esmvcphp framewrok" /> 
@@ -52,28 +52,7 @@
 			<?php if (isset($_GET["administrator"])): ?>
 				Administrator:
 			<?php endif; ?>
-			Aplicación con patrón MVC</h1>
-		</div>
-		
-		<div id="div_derecha_logo">
-			Usuario: 
-			<?php 
-			echo "<b>".\core\Usuario::$login."</b>";
-			if (\core\Usuario::$login != 'anonimo') {
-				echo " <a href='".\core\URL::generar("usuarios/desconectar")."'>Desconectar</a>";
-			}
-			else {
-				if ((\core\Usuario::$login == "anonimo") && ! (\core\Distribuidor::get_controlador_instanciado() == "usuarios" && \core\Distribuidor::get_metodo_invocado() == "form_login")) {
-					echo " <a href='".\core\URL::generar("usuarios/form_login")."'>Conectar</a>";
-				}
-				if ((\core\Usuario::$login == "anonimo") && ! (\core\Distribuidor::get_controlador_instanciado() == "usuarios" && \core\Distribuidor::get_metodo_invocado() == "form_insertar_externo")) {
-					echo " <a href='".\core\URL::generar("usuarios/form_insertar_externo")."'>Regístrate</a>";
-				}
-			}
-			echo "<br />Fecha local: <span id='fecha'></span>";
-			echo "<br />Tiempo desde conexión: <span id='tiempo_desde_conexion'>".gmdate('H:i:s',  \core\Usuario::$sesion_segundos_duracion)."</span>";
-			echo "<br />Tiempo inactivo: <span id='tiempo_inactivo'></span>";	
-			?>
+			Empleados de mi empresa</h1>
 		</div>
 		
 		<div id="div_menu" >
@@ -82,22 +61,13 @@
 					<ul id="menu" class="menu">
 <!--						<li class="item"><a href="<?php //echo \core\URL::generar(); ?>" title="Inicio">Inicio</a></li>-->
 						<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("revista"); ?>" title="Revista">Revista</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("revista"), "Revista"); ?>
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("libros"); ?>" title="Libros leídos">Libros</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("libros"), "Libros"); ?>
+<!--						<li class="item"><a href="<?php //echo \core\URL::generar("revista"); ?>" title="Revista">Revista</a></li>-->		
 						
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("inicio/internacional"); ?>" title="Internacional">Internacional</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("inicio", "internacional"), "Internacional"); ?>
-						
-						
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("usuarios"); ?>" title="Usuarios">Usuarios</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("usuarios"), "Usuarios"); ?>
+
 <!--						<li class="item"><a href="<?php //echo \core\URL::generar("empleados"); ?>" title="Categorías">Categorías</a></li>-->
 						<?php echo \core\HTML_Tag::li_menu("item", array("empleados"), "Empleados"); ?>
 						
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("articulos"); ?>" title="Artículos">Artículos</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("articulos"), "Artículos"); ?>
+
 					</ul>
 			</fieldset>
 		</div>
@@ -140,23 +110,23 @@
 
 	
 <?php
-if (isset($_SESSION["alerta"])) {
-	echo <<<heredoc
-<script type="text/javascript" />
-	// alert("{$_SESSION["alerta"]}");
-	var alerta = '{$_SESSION["alerta"]}';
-</script>
-heredoc;
-	unset($_SESSION["alerta"]);
-}
-elseif (isset($datos["alerta"])) {
-	echo <<<heredoc
-<script type="text/javascript" />
-	// alert("{$datos["alerta"]}");
-	var alerta = '{$datos["alerta"]}';
-</script>
-heredoc;
-}
+//if (isset($_SESSION["alerta"])) {
+//	echo <<<heredoc
+//<script type="text/javascript" />
+//	// alert("{$_SESSION["alerta"]}");
+//	var alerta = '{$_SESSION["alerta"]}';
+//</script>
+//heredoc;
+//	unset($_SESSION["alerta"]);
+//}
+//elseif (isset($datos["alerta"])) {
+//	echo <<<heredoc
+//<script type="text/javascript" />
+//	// alert("{$datos["alerta"]}");
+//	var alerta = '{$datos["alerta"]}';
+//</script>
+//heredoc;
+//}
 ?>	
 	
 		<div id='globals'>

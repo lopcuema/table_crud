@@ -36,14 +36,17 @@ class empleados extends \core\Controlador {
 		
 		
 		$validaciones = array(
-			 "nombre" =>"errores_requerido && errores_texto && errores_unicidad_insertar:nombre/empleados/nombre"
-			, "descripcion" => "errores_texto"
+			 "nombre" =>"errores_requerido && errores_texto"
+			, "apellidos" => "errores_texto && errores_requerido"
+            , "direccion" => "errores_requerido && errores_texto"
+            , "sueldo" => "errores_precio && errores_requerido"
 
 		);
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos))
             $datos["errores"]["errores_validacion"]="Corrige los errores.";
 		else {
-			
+			//Convertimos la fecha de formato europeo a formato mysql. Primero añadimos guiones entre los datos y luego convertimos
+            $datos['values']['sueldo'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['sueldo']);
 			if ( ! $validacion = \modelos\Modelo_SQL::insert($datos["values"], 'empleados')) // Devuelve true o false
 				$datos["errores"]["errores_validacion"]="No se han podido grabar los datos en la bd.";
 		}
@@ -104,16 +107,17 @@ class empleados extends \core\Controlador {
 		
 		$validaciones=array(
 			 "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/empleados/id"
-			, "nombre" =>"errores_requerido && errores_texto && errores_unicidad_modificar:id,nombre/empleados/nombre,id"
-			, "descripcion" => "errores_texto"
-			
+			, "nombre" =>"errores_requerido && errores_texto"
+			, "apellidos" => "errores_texto && errores_requerido"
+            , "direccion" => "errores_requerido && errores_texto"
+            , "sueldo" => "errores_precio && errores_requerido"
 		);
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos)) {
 			
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
 		}
 		else {
-			
+			$datos['values']['sueldo'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['sueldo']);
 			if ( ! $validacion = \modelos\Datos_SQL::update($datos["values"], 'empleados')) // Devuelve true o false
 					
 				$datos["errores"]["errores_validacion"]="No se han podido grabar los datos en la bd.";
@@ -124,7 +128,8 @@ class empleados extends \core\Controlador {
 		else {
 			$datos = array("alerta" => "Se han modificado correctamente.");
 			// Definir el controlador que responderá después de la inserción
-			\core\Distribuidor::cargar_controlador('empleados', 'index', $datos);		
+			\core\Distribuidor::cargar_controlador('empleados', 'index', $datos);
+            header("Location: ".\core\URL::generar("empleados/index"));
 		}
 		
 	}
@@ -134,6 +139,10 @@ class empleados extends \core\Controlador {
 	public function form_borrar(array $datos=array()) {
 		
 		$datos["form_name"] = __FUNCTION__;
+        if (\core\HTTP_Requerimiento::method() != "POST") {
+            $datos['mensaje'] = "No se puede intoducir un id en la URL, utiliza los botones.";
+            return \core\Distribuidor::cargar_controlador('errores', 'mensaje', $datos);
+        }
 		$validaciones=array(
 			"id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/empleados/id"
 		);
@@ -167,13 +176,15 @@ class empleados extends \core\Controlador {
 	
 	public function validar_form_borrar(array $datos=array()) {	
 		
+        
+        
 		$validaciones=array(
 			 "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/empleados/id"
 		);
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos)) {
 			$datos['mensaje'] = 'Datos erróneos para identificar el artículo a borrar';
 			$datos['url_continuar'] = \core\URL::http('?menu=empleados');
-			\core\Distribuidor::cargar_controlador('mensajes', 'mensaje', $datos);
+			\core\Distribuidor::cargar_controlador('errores', 'mensaje', $datos);
 			return;
 		}
 		else
@@ -181,14 +192,20 @@ class empleados extends \core\Controlador {
 			if ( ! $validacion = \modelos\Datos_SQL::delete($datos["values"], 'empleados')) {// Devuelve true o false
 				$datos['mensaje'] = 'Error al borrar en la bd';
 				$datos['url_continuar'] = \core\URL::http('?menu=empleados');
-				\core\Distribuidor::cargar_controlador('mensajes', 'mensaje', $datos);
+				\core\Distribuidor::cargar_controlador('errores', 'mensaje', $datos);
 				return;
 			}
 			else
 			{
 			$datos = array("alerta" => "Se borrado correctamente.");
-			\core\Distribuidor::cargar_controlador('empleados', 'index', $datos);		
-			}
+			\core\Distribuidor::cargar_controlador('empleados', 'index', $datos);
+			
+            \core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("empleados/index"));
+			\core\HTTP_Respuesta::enviar();
+            
+            }
+            
+            
 		}
 		
 	}

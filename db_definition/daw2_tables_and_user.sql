@@ -30,7 +30,7 @@ create table daw2_empleados
 ,  nombre varchar(50) not null
 ,  apellidos varchar(80)
 ,  direccion varchar(80)
-,  fecha_alta date comment 'Formato inglés -> YYYY-MM-DD'
+,  fecha_alta timestamp not null default current_timestamp() 
 ,  sueldo decimal (10,2) not null
 ,  primary key(id)
 )
