@@ -55,15 +55,16 @@ class Configuracion {
 		'db_name'  => 'daw2',
 		'prefix_'  => 'daw2_'
 	);*/
-	public static $db = array(
-		'server'   => 'localhost',
-		'user'     => 'daw2_lopcuema',
-		'password' => 'daw2_lopcuema',
-		'db_name'  => 'daw2',
-		'prefix_'  => 'daw2_'
-	);
+//	public static $db = array(
+//		'server'   => 'localhost',
+//		'user'     => 'daw2_lopcuema',
+//		'password' => 'daw2_lopcuema',
+//		'db_name'  => 'daw2',
+//		'prefix_'  => 'daw2_'
+//	);
 
-	// hostinger Modificar mis datos de hostinger
+	// hostinger Modificar mis datos de hostinger 
+    // Original de Jesus
 //	public static $db = array(
 //		'server'   => 'mysql.hostinger.es',
 //		'user'     => 'u452950836_daw2',
@@ -71,6 +72,15 @@ class Configuracion {
 //		'db_name'   => 'u452950836_daw2',
 //		'prefix_'  => 'daw2_'
 //	);
+    
+    // datos mios del servidor hostinger
+    public static $db = array(
+		'server'   => 'mysql.hostinger.es',
+		'user'     => 'u589533773_daw2',
+		'password' => 'u589533773_daw2',
+		'db_name'   => 'u589533773_daw2',
+		'prefix_'  => 'daw2_'
+	);
 	
 	/**
 	 * Define array llamado recursos_y_suariosla con la definición de todos los permisos de acceso a los recursos de la aplicación.
