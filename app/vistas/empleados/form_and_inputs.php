@@ -1,5 +1,6 @@
 
-<form method='post' name='<?php echo \core\Array_Datos::contenido("form_name", $datos); ?>' action="?menu=<?php echo $datos['controlador_clase']; ?>&submenu=validar_<?php echo $datos['controlador_metodo']; ?>" >
+<form method='post' name='<?php echo \core\Array_Datos::contenido("form_name", $datos); ?>' action="<?php  echo \core\URL::generar("empleados/validar_{$datos['controlador_metodo']}"); ?>" >
+ 
 	
 	<?php echo \core\HTML_Tag::form_registrar($datos["form_name"], "post"); ?>
 	<input id='id' name='id' type='hidden' value='<?php echo \core\Array_Datos::values('id', $datos); ?>' />

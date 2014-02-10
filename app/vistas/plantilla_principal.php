@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
-// habrá que cargarse los del idioma pues eliminaremos todo
-// tambien lo del administradar en la 28
+
 <html lang='<?php echo \core\Idioma::get(); ?>'>
 	<head>
 		<title><?php echo TITULO; ?></title>
@@ -46,8 +45,9 @@
 		<!-- Contenido que se visualizará en el navegador, organizado con la ayuda de etiquetas html -->
 		<div id="inicio"></div>
 		<div id="encabezado">
-			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/ipv_ies_palomeras.png" alt="logo" title="Logo" onclick="window.location.assign('http://www.iespalomeras.net/');"/>
-			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/departamento_informatica.png" alt="logo" title="Logo departamento"  onclick="window.location.assign('http://www.iespalomeras.net/index.php?option=com_wrapper&view=wrapper&Itemid=86');" />
+			<img id="cabecera" src="<?php echo URL_ROOT; ?>recursos/imagenes/Trabajo-en-equipo-cordada.jpg" alt="logo" title="Logo" onclick="window.location.assign('http://www.iespalomeras.net/');"/>
+            <br/>
+<!--			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/departamento_informatica.png" alt="logo" title="Logo departamento"  onclick="window.location.assign('http://www.iespalomeras.net/index.php?option=com_wrapper&view=wrapper&Itemid=86');" />-->
 			<h1 id="titulo">
 			<?php if (isset($_GET["administrator"])): ?>
 			Administrator:

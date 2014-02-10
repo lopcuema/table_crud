@@ -13,7 +13,10 @@ h1#titulo {
 	display: inline;
 }
 
-
+img#cabecera{
+    width: 100%;
+    height: 300px;
+}
 
 
 /*div#div_derecha_logo {

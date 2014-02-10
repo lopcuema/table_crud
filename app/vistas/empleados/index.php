@@ -33,9 +33,10 @@
                         <td>{$fila['fecha_alta']}</td>
                         <td>$sueldo</td>
 						<td>
-					".\core\HTML_Tag::a_boton_onclick("boton", array("empleados", "form_modificar", $fila['id']), "modificar")
+					".\core\HTML_Tag::a_boton_onclick("boton", array("empleados", "form_modificar", $fila['id']), "  modificar  ")
 //							<a class='boton' href='?menu={$datos['controlador_clase']}&submenu=form_modificar&id={$fila['id']}' >modificar</a>
-					.\core\HTML_Tag::a_boton_onclick("boton", array("empleados", "form_borrar", $fila['id']), "borrar").
+                               
+					.\core\HTML_Tag::a_boton_onclick("boton", array("empleados", "form_borrar", $fila['id']), "  borrar  ").
 //							<a class='boton' href='?menu={$datos['controlador_clase']}&submenu=form_borrar&id={$fila['id']}' >borrar</a>
 						"</td>
 					</tr>
